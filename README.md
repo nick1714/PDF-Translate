@@ -20,56 +20,84 @@
 
 ## Cài đặt
 
-### 1. Cài đặt thư viện Python
+### 1. Clone repository và cài đặt thư viện Python
 
 ```bash
+# Clone repository
+git clone https://github.com/your-username/pdf_translate.git
+cd pdf_translate
+
+# Tạo và kích hoạt môi trường ảo (tùy chọn nhưng khuyến nghị)
+python -m venv venv
+# Windows
+venv\Scripts\activate
+# Linux/Mac
+source venv/bin/activate
+
+# Cài đặt thư viện Python
 pip install -r requirements.txt
 ```
 
-### 2. Cài đặt thư viện Node.js
+### 2. Cài đặt thư viện Node.js cho web app
 
 ```bash
+# Di chuyển đến thư mục myserver
+cd myserver
+
+# Cài đặt dependencies cho Node.js server
 npm install
+
+# Cài đặt dependencies cho React frontend
 cd frontend
 npm install
+cd ..
+
+# Trở về thư mục gốc
 cd ..
 ```
 
 ### 3. Build frontend
 
 ```bash
-cd frontend
+cd myserver/frontend
 npm run build
-cd ..
+cd ../..
 ```
 
 ## Chạy ứng dụng
 
-### Chạy cả frontend và backend
+### Phương pháp 1: Sử dụng giao diện Gradio
 
 ```bash
-npm start
+# Từ thư mục gốc
+python gui.py
 ```
+Ứng dụng sẽ khởi động tại http://localhost:7860 với giao diện Gradio.
 
-Ứng dụng sẽ khởi động tại http://localhost:3000 và tự động chạy Flask backend.
+### Phương pháp 2: Sử dụng giao diện Web (React + Flask)
 
-### Chạy riêng từng phần
-
-**Backend (Flask API)**
+**Chạy backend (Flask API)**
 ```bash
+# Từ thư mục gốc
 cd backend
 python app.py
 ```
+Backend API sẽ chạy tại http://localhost:5000
 
-**Frontend (React)**
+**Chạy Node.js server và frontend**
 ```bash
-cd frontend
-npm start
-```
-
-**Node.js Server (chỉ proxy, không chạy Flask)**
-```bash
+# Mở terminal mới và đi đến thư mục myserver
+cd myserver
 node server.js
+```
+Web app sẽ khởi động tại http://localhost:3000 và tự động kết nối với Flask backend.
+
+### Sử dụng như command line tool
+
+```bash
+python pdf_translate.py --help
+# Ví dụ: dịch file PDF
+python pdf_translate.py input.pdf --lang-in en --lang-out zh --service google
 ```
 
 ## API Endpoints
@@ -86,18 +114,54 @@ node server.js
 
 ```
 pdf_translate/
-├── backend/           # Flask API backend
-│   └── app.py         # Main Flask application
-├── frontend/          # React frontend
-│   ├── public/        # Static files
-│   ├── src/           # React source code
-│   └── package.json   # Frontend dependencies
-├── uploads/           # Upload directory
-├── outputs/           # Output directory
-├── server.js          # Node.js proxy server
-├── package.json       # Main package.json
-└── README.md          # This file
+├── pdf2zh/               # Package cốt lõi
+│   ├── __init__.py       # File khởi tạo package
+│   ├── high_level.py     # API cấp cao
+│   ├── translator.py     # Các dịch vụ dịch thuật
+│   ├── config.py         # Cấu hình
+│   ├── doclayout.py      # Xử lý layout tài liệu
+│   └── ...               # Các module khác
+├── backend/              # Flask API backend
+│   └── app.py            # API Flask chính
+├── myserver/             # Node.js + React
+│   ├── frontend/         # React frontend
+│   │   ├── public/       # Static files
+│   │   ├── src/          # React source code
+│   │   └── package.json  # Frontend dependencies
+│   ├── server.js         # Node.js server 
+│   └── package.json      # Node.js dependencies
+├── uploads/              # Thư mục chứa file tải lên
+├── outputs/              # Thư mục chứa file đầu ra
+├── gui.py                # Giao diện Gradio
+├── pdf_translate.py      # Command line interface
+├── requirements.txt      # Thư viện Python
+└── README.md             # File này
 ```
+
+## Dịch vụ dịch thuật hỗ trợ
+
+- Google Translate
+- Bing Translator
+- DeepL
+- DeepLX
+- Ollama
+- Xinference
+- Azure OpenAI
+- OpenAI
+- Zhipu
+- ModelScope
+- Silicon
+- Gemini
+- Azure Translator
+- Tencent
+- Dify
+- AnythingLLM
+- Argos
+- Grok
+- Groq
+- Deepseek
+- Qwen-MT
+- Và nhiều dịch vụ khác
 
 ## Môi trường triển khai
 
