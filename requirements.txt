@@ -1,0 +1,43 @@
+# Cac phu thuoc chinh
+PyQt5
+transformers
+torch
+fpdf
+sentencepiece
+pymupdf<1.25.3
+tenacity
+ollama
+xinference-client
+deepl
+openai>=1.0.0
+azure-ai-translation-text<=1.0.1
+gradio
+huggingface_hub
+onnx
+onnxruntime
+opencv-python-headless
+tencentcloud-sdk-python-tmt
+pdfminer.six
+gradio_pdf>=0.0.21
+pikepdf==8.15.0
+peewee>=3.17.8
+fontTools
+babeldoc>=0.1.22, <0.3.0
+rich
+
+# Cac phu thuoc voi phien ban cu the
+flask==2.3.3
+flask-cors==4.0.0
+requests==2.31.0
+tqdm==4.67.1
+python-dotenv==1.0.0
+PyPDF2==3.0.1
+pdf2image==1.16.3
+Pillow>=10.0.1
+pdfplumber==0.11.6
+numpy>=2.0.2
+
+# Cac phu thuoc tuy chon
+# celery
+# redis
+# argostranslate 
