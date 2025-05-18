@@ -84,7 +84,7 @@ python app.py
 ```
 Backend API sẽ chạy tại http://localhost:5000
 
-**Chạy Node.js server và frontend**
+**Chạy Node.js server và frontend (Khuyến nghị)**
 ```bash
 # Mở terminal mới và đi đến thư mục myserver
 cd myserver
