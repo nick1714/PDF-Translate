@@ -178,7 +178,3 @@ pdf_translate/
 - `PORT` - Cổng cho Node.js server (mặc định: 3000)
 - `FLASK_API_URL` - URL đến Flask API (mặc định: http://localhost:5000)
 - `REACT_APP_API_URL` - URL đến API từ frontend (mặc định: http://localhost:5000)
-
-## Giấy phép
-
-MIT License 
