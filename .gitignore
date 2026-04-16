@@ -53,7 +53,8 @@ myserver/uploads/*
 myserver/outputs/*
 !myserver/uploads/.gitkeep
 !myserver/outputs/.gitkeep
-
+backend/uploads/*
+backend/outputs/*
 # Editor
 .idea/
 .vscode/
